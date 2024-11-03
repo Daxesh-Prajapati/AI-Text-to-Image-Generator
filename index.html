@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator</title>
+
+    <!-- linking css file  -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="logo">
+            <h4 class="logo-text">AI Image Generator ;)</h4>
+        </div>
+    </header>
+    <div class="container">
+        <div class="branding-text-box">
+            <h1 class="headline">AI Text to Image Generator</h1>
+            <p class="branding-text">Convert Your Text to Images within seconds with the help of AI powered Engine.
+                This Generate is purely made of Javascript making it fast and snappy</p>
+
+        </div>
+
+        <div class="user-prompt">
+            <p>
+                user entered this prompt Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Explicabo facilis, asperiores aut aperiam labore incidunt perspiciatis quisquam accusantium illo dicta!
+            </p>
+        </div>
+
+        <div class="user-input-container">
+
+            <form id="prompt-form">
+                <div class="prompt-field-box">
+
+                    <input type="text" name="prompt-field" id="prompt-field" value="" placeholder="Enter prompt here"
+                        required>
+                </div>
+
+                <div class="select-field-box">
+
+                    <select name="image-count" id="image-count">
+                        <option value="1">1 Image </option>
+                        <option value="2">2 Images </option>
+                        <option value="3">3 Images </option>
+                        <option value="4" selected>4 Images </option>
+                    </select>
+                </div>
+                <div class="select-field-box">
+                    <select name="image-style" id="image-style">
+                        <option value="" selected>Select Theme</option>
+                        <option value="enhance">enhance</option>
+                        <option value="anime">anime</option>
+                        <option value="photographic">photographic</option>
+                        <option value="digital-art">digital-art</option>
+                        <option value="comic-book">comic-book</option>
+                        <option value="fantasy-art">fantasy-art</option>
+                        <option value="analog-film">analog-film</option>
+                        <option value="neonpunk">neonpunk</option>
+                        <option value="isometric">isometric</option>
+                        <option value="lowpoly">lowpoly</option>
+                        <option value="origami">origami</option>
+                        <option value="line-art">line-art</option>
+                        <option value="craft-clay">craft-clay</option>
+                        <option value="cinematic">cinematic</option>
+                        <option value="3d-model">3d-model</option>
+                        <option value="pixel-art">pixel-art</option>
+                        <option value="texture">texture</option>
+                        <option value="futuristic">futuristic</option>
+                        <option value="realism">realism</option>
+                        <option value="watercolor">watercolor</option>
+                        <option value="photorealistic">photorealistic</option>
+                    </select>
+
+                </div>
+
+                <input type="submit" name="submit" id="submit" value="Generate">
+            </form>
+        </div>
+
+        <div class="image-viewer-container">
+            <div class="image-box loading">
+                <img src="./assets/Double Ring@1x-2.7s-200px-200px.svg" alt="img 1">
+                <a href="#"><img src="./assets/download.svg" alt="download rev-btn"></a>
+            </div>
+            <div class="image-box ">
+                <img src="./assets/Double Ring@1x-2.7s-200px-200px.svg" alt="img 1">
+                <a href="#"><img src="./assets/download.svg" alt="download rev-btn"></a>
+            </div>
+        </div>
+
+        <button class="revert-btn" id="rev-btn">Revert</button>
+
+
+
+    </div>
+</body>
+<script src=" script.js" type="module" defer></script>
+<script src="apiwork.js" type="module"></script>
+
+</html>

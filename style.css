@@ -1,0 +1,301 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    position: relative;
+    z-index: 0;
+    opacity: 1;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./assets/anime-style-galaxy-background.jpg');
+    background-size: cover;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 80px;
+}
+
+
+
+@keyframes pageturning {
+    from {
+        opacity: 0;
+        transform: rotateX(-90deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateY(0);
+    }
+}
+
+
+
+.logo-text {
+    padding: 20px;
+    user-select: none;
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #e6e6e6;
+    text-shadow: 5px 5px 5px black;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    width: 100vw;
+    height: calc(100vh - 80px);
+    animation: pageturning 2s;
+
+}
+
+.branding-text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.headline {
+    margin-top: 5rem;
+    padding: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 4rem;
+    font-weight: 400;
+    text-shadow: 5px 5px 15px rgb(226, 222, 222);
+    transition: all 0.8s ease-in-out 0s;
+}
+
+.branding-text {
+    padding: 15px 0 5px 0;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: rgb(250, 250, 250);
+    text-shadow: 2px 2px 5px grey;
+    white-space: pre-line;
+    text-align: center;
+    line-height: 1.5;
+
+}
+
+#prompt-form {
+    display: flex;
+    /* justify-content: space-evenly; */
+    gap: 10px;
+}
+
+.prompt-field-box {
+    width: 500px;
+    height: 3rem;
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+}
+
+#prompt-field {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5rem;
+    color: #4b2354;
+    width: 100%;
+    height: 100%;
+    background: 0 0;
+    padding: 0 20px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+}
+
+.select-field-box {
+    position: relative;
+    display: flex;
+    width: auto;
+    height: 3rem;
+    border-radius: 20px;
+    background: #fff;
+
+}
+
+
+#image-count,
+#image-style {
+    cursor: pointer;
+    border-radius: 20px;
+    background: 0 0;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #4b2354;
+    padding: 0 10px;
+}
+
+#submit {
+    height: 3rem;
+    width: 100px;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: #4b2354;
+    border: none;
+    transition: all 0.7s linear 0.025s;
+}
+
+#submit:hover {
+    background: #4b2354;
+    color: #fff;
+    font-size: 1.1rem;
+    box-shadow: 5px 5px 10px #fff;
+    cursor: pointer;
+}
+
+.user-prompt {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    max-width: 60%;
+    max-height: fit-content;
+    text-align: justify;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    word-break: break-word;
+    margin-bottom: 20px;
+}
+
+.user-prompt>p {
+    color: #ffffff;
+    font-size: 1.8rem;
+    padding: 10px;
+}
+
+.image-viewer-container {
+    width: 90%;
+    height: 300px;
+    background: #fff;
+    border-radius: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.image-box {
+    background: #e7e7e7d3;
+    width: 250px;
+    height: 250px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    box-shadow: 5px 5px 5px #4b2354ad;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.image-box a {
+    position: absolute;
+    bottom: 8%;
+    right: 8%;
+    height: 30px;
+    width: 30px;
+    background-color: #ffffff9d;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    /* this is make it invisible till user hover over it */
+    display: none;
+
+    /* this will make link not work untill image is loaded */
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* this is make it invisible till user hover over it */
+.image-box:hover a {
+    display: flex;
+}
+
+.image-box:not(.loading):hover a {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.image-box a img {
+    height: 20px;
+    width: 20px;
+    margin: auto;
+}
+
+
+
+
+
+.revert-btn {
+    align-self: flex-start;
+
+    height: 3rem;
+    width: 100px;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: #4b2354;
+    border: none;
+    margin: 20px 5%;
+    transition: all 0.5s linear 0s;
+}
+
+.revert-btn:hover {
+    background: #fff;
+    color: #4b2354;
+    font-size: 1.1rem;
+    box-shadow: 5px 5px 10px #4b2354;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .branding-text,
+.user-input-container {
+    display: none;
+} */
+
+.image-viewer-container,
+.revert-btn,
+.user-prompt {
+    display: none;
+}
